@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa Feedback</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #013220; /* Dark green background */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+        }
+        .form-container {
+            display: inline-block;
+            margin-top: 100px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+	    }
+        input, textarea, button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+        }
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        button {
+            background-color: #ff4444;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #cc0000;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <h1>Santa's Feedback Form</h1>
+    <div class="form-container">
+        <form id="feedbackForm">
+            <label for="name">Enter Your Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="Your Name" required><br>
+            
+            <label for="feedback">Enter Your Feedback:</label><br>
+            <textarea id="feedback" name="feedback" placeholder="Write your feedback here..." required></textarea><br>
+            
+            <button type="submit">Submit Feedback</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from reloading the page
+            const name = document.getElementById("name").value.trim();
+            const feedback = document.getElementById("feedback").value.trim();
+            const resultDiv = document.getElementById("result");
+
+            if (name === "Mayor Malware") {
+                resultDiv.textContent = "nojingles has uploaded a new YouTube video! www.youtube.com/'QVBZVFNYQXsKZTA3X3loCjNfczNaaTA1CmVfSzNnRWkzM3IKfQo='";
+            } else {
+                resultDiv.textContent = "Thank you for your feedback, " + name + "! We appreciate your thoughts: \"" + feedback + "\"";
+            }
+        });
+    </script>
+</body>
+</html>
